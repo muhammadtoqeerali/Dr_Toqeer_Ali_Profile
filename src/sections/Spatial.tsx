@@ -22,11 +22,14 @@ const expertiseTags = [
   'Data Analytics',
 ]
 
-const profileText =
-  'PhD in Computer Science with expertise in machine learning, artificial intelligence, and deep learning, applied to wearable sensing, edge computing, and healthcare systems. Skilled in designing end-to-end AI and ML pipelines for time-series and computer-vision tasks, covering sensor data collection and curation, synthetic data generation via physics-informed digital twin simulation and generative modelling, feature engineering, model development, and optimised on-device inference on resource-constrained embedded platforms. Experienced in IoT system integration, computational biomechanics, and interdisciplinary collaboration spanning computer science, applied mechanics, and embedded engineering. Research outputs include peer-reviewed publications, an open wearable benchmark dataset, and open-source software prototypes. Additional experience includes university-level teaching, full-stack web development, and image processing for defence and industrial applications.'
+const leadText =
+  'PhD in Computer Science with expertise in machine learning, artificial intelligence, and deep learning for wearable sensing, embedded systems, and healthcare technologies.'
+
+const summaryText =
+  'My work focuses on designing end-to-end AI and ML pipelines for time-series and computer-vision tasks, spanning sensor data collection, synthetic data generation, feature engineering, model development, and deployment on resource-constrained platforms. I also work across IoT systems, computational biomechanics, and interdisciplinary research, with contributions including peer-reviewed publications, open research datasets, software prototypes, and university-level teaching.'
 
 const ongoingText =
-  'Currently working on an ongoing physics-based digital twin project that converts modelled human fall trajectories into realistic accelerometer and gyroscope signals for synthetic IMU data generation, in collaboration with Prof. Iacopo Tamellin at the University of Verona.'
+  'Currently working on an ongoing physics-based digital twin project for generating realistic accelerometer and gyroscope signals from modelled human fall trajectories, supporting synthetic IMU data generation in collaboration with the University of Verona.'
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement | null>(null)
@@ -40,7 +43,7 @@ export default function HeroSection() {
 
     const ctx = gsap.context(() => {
       gsap.from(content.children, {
-        y: 36,
+        y: 34,
         opacity: 0,
         duration: 1,
         stagger: 0.12,
@@ -86,7 +89,7 @@ export default function HeroSection() {
         style={{
           position: 'absolute',
           inset: 0,
-          opacity: 0.16,
+          opacity: 0.14,
           backgroundImage:
             'linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)',
           backgroundSize: '24px 24px',
@@ -100,18 +103,18 @@ export default function HeroSection() {
           position: 'relative',
           zIndex: 1,
           width: '100%',
-          maxWidth: '980px',
+          maxWidth: '900px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           textAlign: 'center',
-          gap: '24px',
+          gap: '22px',
         }}
       >
         <div
           style={{
             fontSize: '13px',
-            letterSpacing: '0.24em',
+            letterSpacing: '0.22em',
             textTransform: 'uppercase',
             color: '#0d9488',
             lineHeight: 1.8,
@@ -124,27 +127,38 @@ export default function HeroSection() {
           style={{
             margin: 0,
             color: '#ffffff',
-            fontSize: 'clamp(64px, 10vw, 118px)',
-            lineHeight: 0.94,
+            fontSize: 'clamp(64px, 9vw, 110px)',
+            lineHeight: 0.95,
             fontWeight: 400,
-            letterSpacing: '-0.04em',
+            letterSpacing: '-0.045em',
           }}
         >
-          Dr. Muhammad
-          <br />
-          Toqeer Ali
+          Dr. T. Ali
         </h1>
 
         <p
           style={{
-            maxWidth: '900px',
+            maxWidth: '780px',
             margin: 0,
-            color: 'rgba(255,255,255,0.84)',
-            fontSize: 'clamp(17px, 1.55vw, 22px)',
-            lineHeight: 1.85,
+            color: '#ffffff',
+            fontSize: 'clamp(22px, 2.1vw, 30px)',
+            lineHeight: 1.45,
+            fontWeight: 300,
           }}
         >
-          {profileText}
+          {leadText}
+        </p>
+
+        <p
+          style={{
+            maxWidth: '760px',
+            margin: 0,
+            color: 'rgba(255,255,255,0.82)',
+            fontSize: 'clamp(16px, 1.25vw, 19px)',
+            lineHeight: 1.95,
+          }}
+        >
+          {summaryText}
         </p>
 
         <div
@@ -153,14 +167,15 @@ export default function HeroSection() {
             flexWrap: 'wrap',
             justifyContent: 'center',
             gap: '12px',
-            maxWidth: '860px',
+            maxWidth: '760px',
+            marginTop: '4px',
           }}
         >
           {expertiseTags.map((tag) => (
             <span
               key={tag}
               style={{
-                border: '1px solid rgba(255,255,255,0.28)',
+                border: '1px solid rgba(255,255,255,0.25)',
                 color: '#ffffff',
                 padding: '11px 18px',
                 fontSize: '12px',
@@ -177,10 +192,11 @@ export default function HeroSection() {
         <div
           style={{
             width: '100%',
-            maxWidth: '860px',
-            border: '1px solid rgba(13,148,136,0.5)',
+            maxWidth: '760px',
+            border: '1px solid rgba(13,148,136,0.45)',
             backgroundColor: 'rgba(255,255,255,0.04)',
             padding: '22px 24px',
+            marginTop: '6px',
           }}
         >
           <div
@@ -200,7 +216,7 @@ export default function HeroSection() {
               margin: 0,
               color: 'rgba(255,255,255,0.82)',
               fontSize: '16px',
-              lineHeight: 1.75,
+              lineHeight: 1.8,
             }}
           >
             {ongoingText}
@@ -213,7 +229,7 @@ export default function HeroSection() {
             flexWrap: 'wrap',
             justifyContent: 'center',
             gap: '16px',
-            marginTop: '8px',
+            marginTop: '6px',
           }}
         >
           <button
@@ -267,7 +283,7 @@ export default function HeroSection() {
             flexWrap: 'wrap',
             justifyContent: 'center',
             gap: '18px',
-            marginTop: '8px',
+            marginTop: '6px',
           }}
         >
           {socialLinks.map((link) => (
