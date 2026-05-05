@@ -64,10 +64,11 @@ function App() {
               <Capabilities />
               <Teaching />
               <Honors />
+          <Collaborations />
               <Hero />
             </main>
           )}
-          <Collaborations />
+          
           <Footer />
         </>
       } />

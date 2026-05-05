@@ -5,8 +5,8 @@ interface HeaderProps {
   forceLight?: boolean
 }
 
-const navItems = ['Education', 'Publications', 'Research', 'Skills', 'Teaching', 'Contact']
-const sectionIds = ['#education', '#publications', '#research', '#skills', '#teaching', '#contact']
+const navItems = ['Education', 'Publications', 'Research', 'Skills', 'Teaching', 'Collaborations', 'Contact']
+const sectionIds = ['#education', '#publications', '#research', '#skills', '#teaching', '#collaborations', '#contact']
 
 export default function Header({ scrollRef, forceLight = false }: HeaderProps) {
   const [isCompact, setIsCompact] = useState(false)
