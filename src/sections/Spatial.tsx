@@ -12,7 +12,7 @@ const socialLinks = [
   { label: 'YouTube', url: 'https://youtube.com/@Drtoqeerali' },
 ]
 
-const expertiseTags = [
+const researchAreas = [
   'Machine Learning',
   'Embedded AI',
   'Wearable Sensing',
@@ -21,33 +21,12 @@ const expertiseTags = [
   'Data Analytics',
 ]
 
-const highlightCards = [
-  {
-    title: 'AI & ML Pipelines',
-    text: 'End-to-end pipeline design for time-series and computer-vision tasks, from data collection and curation to model development and deployment.',
-  },
-  {
-    title: 'Embedded Intelligence',
-    text: 'Lightweight AI for resource-constrained systems, including embedded and wearable platforms for real-world sensing applications.',
-  },
-  {
-    title: 'Wearable & Healthcare Systems',
-    text: 'Research at the intersection of wearable sensing, healthcare technologies, safety analytics, and applied machine learning.',
-  },
-  {
-    title: 'Research & Teaching',
-    text: 'Peer-reviewed research, open-source software prototypes, dataset contributions, and university-level teaching experience.',
-  },
+const profilePoints = [
+  'End-to-end AI and ML pipelines for time-series and computer-vision tasks.',
+  'Wearable sensing, edge computing, IoT systems, and healthcare technologies.',
+  'Synthetic sensor data generation through generative modelling and physics-informed simulation.',
+  'Efficient deployment on embedded and resource-constrained platforms.',
 ]
-
-const leadText =
-  'PhD in Computer Science with expertise in machine learning, artificial intelligence, and deep learning for wearable sensing, embedded systems, and healthcare technologies.'
-
-const summaryText =
-  'My work brings together AI, data, and engineering to design practical intelligent systems — spanning sensor data collection, synthetic data generation, feature engineering, model development, and efficient deployment on constrained devices. I also work across IoT systems, computational biomechanics, and interdisciplinary research collaborations.'
-
-const ongoingText =
-  'Current research includes an ongoing physics-based digital twin project that generates realistic accelerometer and gyroscope signals from modelled human fall trajectories for synthetic IMU data generation.'
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement | null>(null)
@@ -61,7 +40,7 @@ export default function HeroSection() {
 
     const ctx = gsap.context(() => {
       gsap.from(content.children, {
-        y: 32,
+        y: 34,
         opacity: 0,
         duration: 1,
         stagger: 0.1,
@@ -78,302 +57,92 @@ export default function HeroSection() {
   }
 
   return (
-    <section
-      ref={sectionRef}
-      style={{
-        position: 'relative',
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        overflow: 'hidden',
-        padding: '150px clamp(20px, 4vw, 60px) 90px',
-        background:
-          'linear-gradient(90deg, #071326 0%, #0a1f3f 50%, #071326 100%)',
-        borderBottom: '1px solid rgba(255,255,255,0.1)',
-      }}
-    >
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background:
-            'radial-gradient(circle at center, rgba(13,148,136,0.16), transparent 52%)',
-          pointerEvents: 'none',
-        }}
-      />
+    <section ref={sectionRef} className="profile-hero">
+      <div className="profile-hero__glow" />
+      <div className="profile-hero__grid" />
 
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          opacity: 0.13,
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
-          backgroundSize: '24px 24px',
-          pointerEvents: 'none',
-        }}
-      />
-
-      <div
-        ref={contentRef}
-        style={{
-          position: 'relative',
-          zIndex: 1,
-          width: '100%',
-          maxWidth: '1100px',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          textAlign: 'center',
-          gap: '22px',
-        }}
-      >
-        <div
-          style={{
-            fontSize: '12px',
-            letterSpacing: '0.22em',
-            textTransform: 'uppercase',
-            color: '#0d9488',
-            lineHeight: 1.8,
-          }}
-        >
-          Machine Learning / Embedded AI / Wearable Sensing / Digital Twin / Robotics / Data Analytics
-        </div>
-
-        <h1
-          style={{
-            margin: 0,
-            color: '#ffffff',
-            fontSize: 'clamp(62px, 9vw, 112px)',
-            lineHeight: 0.95,
-            fontWeight: 400,
-            letterSpacing: '-0.045em',
-          }}
-        >
-          Dr. Muhammad
-          <br />
-          Toqeer Ali
-        </h1>
-
-        <p
-          style={{
-            maxWidth: '820px',
-            margin: 0,
-            color: '#ffffff',
-            fontSize: 'clamp(22px, 2vw, 30px)',
-            lineHeight: 1.45,
-            fontWeight: 300,
-          }}
-        >
-          {leadText}
-        </p>
-
-        <p
-          style={{
-            maxWidth: '860px',
-            margin: 0,
-            color: 'rgba(255,255,255,0.82)',
-            fontSize: 'clamp(16px, 1.2vw, 19px)',
-            lineHeight: 1.95,
-          }}
-        >
-          {summaryText}
-        </p>
-
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: '12px',
-            maxWidth: '860px',
-            marginTop: '4px',
-          }}
-        >
-          {expertiseTags.map((tag) => (
-            <span
-              key={tag}
-              style={{
-                border: '1px solid rgba(255,255,255,0.24)',
-                color: '#ffffff',
-                padding: '11px 18px',
-                fontSize: '12px',
-                letterSpacing: '0.13em',
-                textTransform: 'uppercase',
-                backgroundColor: 'rgba(255,255,255,0.03)',
-              }}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        <div
-          style={{
-            width: '100%',
-            maxWidth: '980px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '16px',
-            marginTop: '6px',
-          }}
-        >
-          {highlightCards.map((card) => (
-            <div
-              key={card.title}
-              style={{
-                padding: '22px 20px',
-                textAlign: 'left',
-                border: '1px solid rgba(255,255,255,0.12)',
-                backgroundColor: 'rgba(255,255,255,0.045)',
-                backdropFilter: 'blur(4px)',
-              }}
-            >
-              <div
-                style={{
-                  color: '#ffffff',
-                  fontSize: '15px',
-                  fontWeight: 500,
-                  marginBottom: '10px',
-                  letterSpacing: '0.02em',
-                }}
-              >
-                {card.title}
-              </div>
-              <p
-                style={{
-                  margin: 0,
-                  color: 'rgba(255,255,255,0.74)',
-                  fontSize: '14px',
-                  lineHeight: 1.75,
-                }}
-              >
-                {card.text}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div
-          style={{
-            width: '100%',
-            maxWidth: '980px',
-            border: '1px solid rgba(13,148,136,0.45)',
-            backgroundColor: 'rgba(255,255,255,0.04)',
-            padding: '22px 24px',
-            marginTop: '2px',
-            textAlign: 'left',
-          }}
-        >
-          <div
-            style={{
-              color: '#0d9488',
-              fontSize: '12px',
-              letterSpacing: '0.16em',
-              textTransform: 'uppercase',
-              marginBottom: '10px',
-            }}
-          >
-            Current research focus · ongoing
+      <div ref={contentRef} className="profile-hero__inner">
+        <div className="profile-hero__left">
+          <div className="profile-hero__eyebrow">
+            Machine Learning · Embedded AI · Wearable Sensing
           </div>
 
-          <p
-            style={{
-              margin: 0,
-              color: 'rgba(255,255,255,0.84)',
-              fontSize: '16px',
-              lineHeight: 1.8,
-            }}
-          >
-            {ongoingText}
+          <h1 className="profile-hero__title">
+            Dr. Muhammad
+            <span>Toqeer Ali</span>
+          </h1>
+
+          <p className="profile-hero__lead">
+            I design intelligent, deployable AI systems for wearable sensing,
+            embedded platforms, healthcare technologies, and real-world safety
+            applications.
           </p>
-        </div>
 
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: '16px',
-            marginTop: '6px',
-          }}
-        >
-          <button
-            onClick={() => scrollToSection('#contact')}
-            onMouseEnter={() => setHovered('contact')}
-            onMouseLeave={() => setHovered(null)}
-            style={{
-              fontSize: '13px',
-              fontWeight: 500,
-              letterSpacing: '0.14em',
-              color: hovered === 'contact' ? '#0f172a' : '#ffffff',
-              backgroundColor:
-                hovered === 'contact' ? '#0d9488' : 'transparent',
-              border: '1px solid #0d9488',
-              padding: '16px 36px',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-              textTransform: 'uppercase',
-              fontFamily: '"Helvetica Neue", sans-serif',
-            }}
-          >
-            Get in Touch
-          </button>
+          <p className="profile-hero__summary">
+            PhD in Computer Science from the University of Verona, working
+            across machine learning, deep learning, sensor data analytics,
+            computational biomechanics, IoT integration, robotics, and
+            interdisciplinary applied research.
+          </p>
 
-          <button
-            onClick={() => scrollToSection('#publications')}
-            onMouseEnter={() => setHovered('publications')}
-            onMouseLeave={() => setHovered(null)}
-            style={{
-              fontSize: '13px',
-              fontWeight: 500,
-              letterSpacing: '0.14em',
-              color: '#ffffff',
-              backgroundColor: 'transparent',
-              border: 'none',
-              padding: '16px 8px',
-              cursor: 'pointer',
-              textTransform: 'uppercase',
-              fontFamily: '"Helvetica Neue", sans-serif',
-              textDecoration: 'underline',
-              textUnderlineOffset: '6px',
-            }}
-          >
-            View Publications
-          </button>
-        </div>
-
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: '18px',
-            marginTop: '4px',
-          }}
-        >
-          {socialLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.url}
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                color: 'rgba(255,255,255,0.65)',
-                fontSize: '12px',
-                letterSpacing: '0.16em',
-                textTransform: 'uppercase',
-                textDecoration: 'none',
-                transition: 'color 0.25s ease',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#0d9488')}
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = 'rgba(255,255,255,0.65)')
-              }
+          <div className="profile-hero__actions">
+            <button
+              onClick={() => scrollToSection('#contact')}
+              onMouseEnter={() => setHovered('contact')}
+              onMouseLeave={() => setHovered(null)}
+              className={hovered === 'contact' ? 'is-hovered' : ''}
             >
-              {link.label}
-            </a>
+              Get in Touch
+            </button>
+
+            <button
+              onClick={() => scrollToSection('#publications')}
+              onMouseEnter={() => setHovered('publications')}
+              onMouseLeave={() => setHovered(null)}
+              className="profile-hero__link-button"
+            >
+              View Publications
+            </button>
+          </div>
+
+          <div className="profile-hero__socials">
+            {socialLinks.map((link) => (
+              <a key={link.label} href={link.url} target="_blank" rel="noreferrer">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <aside className="profile-hero__panel">
+          <div className="profile-hero__panel-label">Research Profile</div>
+
+          <div className="profile-hero__panel-title">
+            AI for wearable, embedded, and sensor-driven systems
+          </div>
+
+          <div className="profile-hero__points">
+            {profilePoints.map((point) => (
+              <div key={point} className="profile-hero__point">
+                <span />
+                <p>{point}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="profile-hero__focus">
+            <div>Current focus · ongoing</div>
+            <p>
+              Developing a physics-based digital twin approach for generating
+              realistic accelerometer and gyroscope signals from modelled human
+              fall trajectories.
+            </p>
+          </div>
+        </aside>
+
+        <div className="profile-hero__areas">
+          {researchAreas.map((area) => (
+            <span key={area}>{area}</span>
           ))}
         </div>
       </div>

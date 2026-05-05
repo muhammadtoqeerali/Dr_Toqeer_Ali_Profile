@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -45,3 +46,307 @@
     color: #ffffff;
   }
 }
+
+
+
+/* === PROFILE HERO REDESIGN START === */
+
+.profile-hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(120deg, rgba(5, 13, 28, 0.96) 0%, rgba(7, 19, 38, 0.96) 48%, rgba(9, 34, 55, 0.98) 100%),
+    #071326;
+  color: #ffffff;
+  padding: 138px clamp(24px, 5vw, 72px) 76px;
+}
+
+.profile-hero__glow {
+  position: absolute;
+  width: 680px;
+  height: 680px;
+  right: -180px;
+  top: 8%;
+  background: radial-gradient(circle, rgba(13, 148, 136, 0.28), transparent 64%);
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.profile-hero__grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.09;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.11) 1px, transparent 1px);
+  background-size: 34px 34px;
+  pointer-events: none;
+}
+
+.profile-hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.72fr);
+  gap: clamp(36px, 5vw, 76px);
+  align-items: center;
+}
+
+.profile-hero__left {
+  max-width: 790px;
+}
+
+.profile-hero__eyebrow {
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  color: #2dd4bf;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.profile-hero__title {
+  margin: 0;
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: clamp(68px, 8.2vw, 128px);
+  line-height: 0.86;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  color: #ffffff;
+}
+
+.profile-hero__title span {
+  display: block;
+  color: #dff7f3;
+}
+
+.profile-hero__lead {
+  margin: 34px 0 0;
+  max-width: 760px;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(23px, 2.05vw, 34px);
+  line-height: 1.32;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+}
+
+.profile-hero__summary {
+  margin: 22px 0 0;
+  max-width: 690px;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.profile-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.profile-hero__actions button {
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1px solid rgba(45, 212, 191, 0.85);
+  background: transparent;
+  color: #ffffff;
+  padding: 15px 26px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.profile-hero__actions button.is-hovered,
+.profile-hero__actions button:hover {
+  background: #2dd4bf;
+  color: #061625;
+  transform: translateY(-2px);
+}
+
+.profile-hero__actions .profile-hero__link-button {
+  border-color: rgba(255,255,255,0.22);
+}
+
+.profile-hero__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.profile-hero__socials a {
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  color: rgba(255,255,255,0.58);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.22s ease;
+}
+
+.profile-hero__socials a:hover {
+  color: #2dd4bf;
+}
+
+.profile-hero__panel {
+  position: relative;
+  background: rgba(246, 250, 249, 0.96);
+  color: #071326;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: clamp(28px, 3vw, 42px);
+  box-shadow: 0 34px 90px rgba(0,0,0,0.34);
+}
+
+.profile-hero__panel::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(7, 19, 38, 0.12);
+  pointer-events: none;
+}
+
+.profile-hero__panel-label {
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  color: #0f766e;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.profile-hero__panel-title {
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: clamp(30px, 3vw, 46px);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  color: #071326;
+  margin-bottom: 26px;
+}
+
+.profile-hero__points {
+  display: grid;
+  gap: 16px;
+}
+
+.profile-hero__point {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.profile-hero__point span {
+  width: 8px;
+  height: 8px;
+  margin-top: 10px;
+  background: #0f766e;
+}
+
+.profile-hero__point p {
+  margin: 0;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  color: rgba(7, 19, 38, 0.78);
+  font-size: 15px;
+  line-height: 1.68;
+}
+
+.profile-hero__focus {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(7, 19, 38, 0.14);
+}
+
+.profile-hero__focus div {
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  color: #0f766e;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.profile-hero__focus p {
+  margin: 0;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  color: rgba(7, 19, 38, 0.78);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.profile-hero__areas {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 6px;
+}
+
+.profile-hero__areas span {
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  border: 1px solid rgba(255,255,255,0.16);
+  color: rgba(255,255,255,0.78);
+  padding: 10px 14px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.035);
+}
+
+@media (max-width: 980px) {
+  .profile-hero {
+    padding-top: 130px;
+  }
+
+  .profile-hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-hero__left {
+    max-width: 100%;
+  }
+
+  .profile-hero__panel {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 640px) {
+  .profile-hero {
+    padding: 112px 20px 58px;
+  }
+
+  .profile-hero__title {
+    font-size: clamp(54px, 17vw, 76px);
+  }
+
+  .profile-hero__lead {
+    font-size: 22px;
+  }
+
+  .profile-hero__summary {
+    font-size: 16px;
+  }
+
+  .profile-hero__actions {
+    flex-direction: column;
+  }
+
+  .profile-hero__actions button {
+    width: 100%;
+  }
+}
+
+/* === PROFILE HERO REDESIGN END === */
