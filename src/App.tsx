@@ -13,6 +13,7 @@ import Login from './pages/Login'
 import Education from './sections/Education'
 import Teaching from './sections/Teaching'
 import Honors from './sections/Honors'
+import Collaborations from './sections/Collaborations'
 import Publications from './sections/Publications'
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
               <Hero />
             </main>
           )}
+          <Collaborations />
           <Footer />
         </>
       } />
