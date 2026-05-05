@@ -56,7 +56,7 @@ function App() {
           ) : (
             <main>
               <Spatial />
-              <Philosophy />
+              
               <Education />
               <Publications />
               <Works scrollRef={scrollRef} onSelectProject={handleSelectProject} />

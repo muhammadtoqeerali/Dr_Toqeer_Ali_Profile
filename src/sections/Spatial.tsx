@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+gsap.registerPlugin(ScrollTrigger)
+
 const socialLinks = [
   { label: 'LinkedIn', url: 'https://linkedin.com' },
   { label: 'ORCID', url: 'https://orcid.org' },
@@ -12,19 +14,24 @@ const socialLinks = [
 
 const expertiseTags = [
   'Machine Learning',
-  'Deep Learning',
-  'Robotics',
-  'Data Analysis',
+  'Artificial Intelligence',
   'Embedded AI',
   'Wearable Sensing',
+  'Digital Twin',
+  'Robotics',
+  'Data Analytics',
 ]
 
-gsap.registerPlugin(ScrollTrigger)
+const profileText =
+  'PhD in Computer Science with expertise in machine learning, artificial intelligence, and deep learning, applied to wearable sensing, edge computing, and healthcare systems. Skilled in designing end-to-end AI and ML pipelines for time-series and computer-vision tasks, covering sensor data collection and curation, synthetic data generation via physics-informed digital twin simulation and generative modelling, feature engineering, model development, and optimised on-device inference on resource-constrained embedded platforms. Experienced in IoT system integration, computational biomechanics, and interdisciplinary collaboration spanning computer science, applied mechanics, and embedded engineering. Research outputs include peer-reviewed publications, an open wearable benchmark dataset, and open-source software prototypes. Additional experience includes university-level teaching, full-stack web development, and image processing for defence and industrial applications.'
+
+const ongoingText =
+  'Currently working on an ongoing physics-based digital twin project that converts modelled human fall trajectories into realistic accelerometer and gyroscope signals for synthetic IMU data generation, in collaboration with Prof. Iacopo Tamellin at the University of Verona.'
 
 export default function HeroSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const contentRef = useRef<HTMLDivElement>(null)
-  const [hovered, setHovered] = useState(false)
+  const sectionRef = useRef<HTMLElement | null>(null)
+  const contentRef = useRef<HTMLDivElement | null>(null)
+  const [hovered, setHovered] = useState<'contact' | 'publications' | null>(null)
 
   useEffect(() => {
     const section = sectionRef.current
@@ -33,29 +40,36 @@ export default function HeroSection() {
 
     const ctx = gsap.context(() => {
       gsap.from(content.children, {
-        y: 40,
+        y: 36,
         opacity: 0,
-        duration: 1.1,
-        stagger: 0.18,
+        duration: 1,
+        stagger: 0.12,
         ease: 'power3.out',
-        delay: 0.4,
+        delay: 0.25,
       })
     }, section)
 
     return () => ctx.revert()
   }, [])
 
+  const scrollToSection = (selector: string) => {
+    document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <section
-      id="hero-top"
       ref={sectionRef}
       style={{
         position: 'relative',
-        width: '100%',
-        height: '100vh',
-        minHeight: '640px',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         overflow: 'hidden',
-        backgroundColor: '#0f172a',
+        padding: '140px clamp(20px, 4vw, 60px) 90px',
+        background:
+          'linear-gradient(90deg, #071326 0%, #0a1f3f 48%, #071326 100%)',
+        borderBottom: '1px solid rgba(255,255,255,0.12)',
       }}
     >
       <div
@@ -63,7 +77,8 @@ export default function HeroSection() {
           position: 'absolute',
           inset: 0,
           background:
-            'radial-gradient(ellipse at 30% 20%, rgba(13,148,136,0.08) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(56,189,248,0.05) 0%, transparent 50%)',
+            'radial-gradient(circle at center, rgba(13,148,136,0.14), transparent 52%)',
+          pointerEvents: 'none',
         }}
       />
 
@@ -71,8 +86,11 @@ export default function HeroSection() {
         style={{
           position: 'absolute',
           inset: 0,
-          background:
-            'linear-gradient(180deg, rgba(15,23,42,0.6) 0%, rgba(15,23,42,0.2) 35%, rgba(15,23,42,0.6) 100%)',
+          opacity: 0.16,
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+          pointerEvents: 'none',
         }}
       />
 
@@ -80,38 +98,36 @@ export default function HeroSection() {
         ref={contentRef}
         style={{
           position: 'relative',
-          zIndex: 2,
+          zIndex: 1,
           width: '100%',
-          height: '100%',
+          maxWidth: '980px',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'flex-start',
-          justifyContent: 'center',
-          gap: '28px',
-          padding: '0 clamp(32px, 4.5vw, 72px)',
+          alignItems: 'center',
+          textAlign: 'center',
+          gap: '24px',
         }}
       >
-        <span
+        <div
           style={{
-            fontSize: '12px',
-            fontWeight: 500,
-            letterSpacing: '0.28em',
-            color: 'rgba(13,148,136,0.9)',
+            fontSize: '13px',
+            letterSpacing: '0.24em',
             textTransform: 'uppercase',
+            color: '#0d9488',
+            lineHeight: 1.8,
           }}
         >
-          Machine Learning / Deep Learning / Robotics / Data Analysis
-        </span>
+          Machine Learning / Embedded AI / Wearable Sensing / Digital Twin / Robotics / Data Analytics
+        </div>
 
         <h1
           style={{
-            fontSize: 'clamp(44px, 7vw, 108px)',
-            fontWeight: 400,
-            letterSpacing: '-0.03em',
-            lineHeight: 1.02,
+            margin: 0,
             color: '#ffffff',
-            maxWidth: '920px',
-            textShadow: '0 2px 24px rgba(0,0,0,0.25)',
+            fontSize: 'clamp(64px, 10vw, 118px)',
+            lineHeight: 0.94,
+            fontWeight: 400,
+            letterSpacing: '-0.04em',
           }}
         >
           Dr. Muhammad
@@ -119,19 +135,38 @@ export default function HeroSection() {
           Toqeer Ali
         </h1>
 
-        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', maxWidth: '700px' }}>
+        <p
+          style={{
+            maxWidth: '900px',
+            margin: 0,
+            color: 'rgba(255,255,255,0.84)',
+            fontSize: 'clamp(17px, 1.55vw, 22px)',
+            lineHeight: 1.85,
+          }}
+        >
+          {profileText}
+        </p>
+
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '12px',
+            maxWidth: '860px',
+          }}
+        >
           {expertiseTags.map((tag) => (
             <span
               key={tag}
               style={{
-                fontSize: '11px',
-                fontWeight: 500,
-                letterSpacing: '0.14em',
-                color: 'rgba(255,255,255,0.85)',
-                padding: '8px 16px',
-                border: '1px solid rgba(255,255,255,0.25)',
+                border: '1px solid rgba(255,255,255,0.28)',
+                color: '#ffffff',
+                padding: '11px 18px',
+                fontSize: '12px',
+                letterSpacing: '0.13em',
                 textTransform: 'uppercase',
-                whiteSpace: 'nowrap',
+                backgroundColor: 'rgba(255,255,255,0.03)',
               }}
             >
               {tag}
@@ -139,32 +174,59 @@ export default function HeroSection() {
           ))}
         </div>
 
-        <p
+        <div
           style={{
-            fontSize: 'clamp(15px, 1.2vw, 18px)',
-            fontWeight: 300,
-            lineHeight: 1.65,
-            color: 'rgba(255,255,255,0.88)',
-            maxWidth: '620px',
+            width: '100%',
+            maxWidth: '860px',
+            border: '1px solid rgba(13,148,136,0.5)',
+            backgroundColor: 'rgba(255,255,255,0.04)',
+            padding: '22px 24px',
           }}
         >
-          PhD in Computer Science from the University of Verona. Researcher in
-          lightweight deep learning for wearable systems, generative modelling
-          for sensor data, physics-informed digital twin simulation, robotics, and
-          occupational safety analytics.
-        </p>
+          <div
+            style={{
+              color: '#0d9488',
+              fontSize: '12px',
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              marginBottom: '10px',
+            }}
+          >
+            Current research focus · ongoing
+          </div>
 
-        <div style={{ display: 'flex', gap: '16px', marginTop: '12px', flexWrap: 'wrap' }}>
+          <p
+            style={{
+              margin: 0,
+              color: 'rgba(255,255,255,0.82)',
+              fontSize: '16px',
+              lineHeight: 1.75,
+            }}
+          >
+            {ongoingText}
+          </p>
+        </div>
+
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '16px',
+            marginTop: '8px',
+          }}
+        >
           <button
-            onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
+            onClick={() => scrollToSection('#contact')}
+            onMouseEnter={() => setHovered('contact')}
+            onMouseLeave={() => setHovered(null)}
             style={{
               fontSize: '13px',
               fontWeight: 500,
               letterSpacing: '0.14em',
-              color: hovered ? '#0f172a' : '#ffffff',
-              backgroundColor: hovered ? '#0d9488' : 'transparent',
+              color: hovered === 'contact' ? '#0f172a' : '#ffffff',
+              backgroundColor:
+                hovered === 'contact' ? '#0d9488' : 'transparent',
               border: '1px solid #0d9488',
               padding: '16px 36px',
               cursor: 'pointer',
@@ -175,12 +237,11 @@ export default function HeroSection() {
           >
             Get in Touch
           </button>
-          <a
-            href="#publications"
-            onClick={(e) => {
-              e.preventDefault()
-              document.querySelector('#publications')?.scrollIntoView({ behavior: 'smooth' })
-            }}
+
+          <button
+            onClick={() => scrollToSection('#publications')}
+            onMouseEnter={() => setHovered('publications')}
+            onMouseLeave={() => setHovered(null)}
             style={{
               fontSize: '13px',
               fontWeight: 500,
@@ -197,15 +258,16 @@ export default function HeroSection() {
             }}
           >
             View Publications
-          </a>
+          </button>
         </div>
 
         <div
           style={{
             display: 'flex',
-            gap: '24px',
-            marginTop: '24px',
             flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '18px',
+            marginTop: '8px',
           }}
         >
           {socialLinks.map((link) => (
@@ -213,17 +275,19 @@ export default function HeroSection() {
               key={link.label}
               href={link.url}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noreferrer"
               style={{
+                color: 'rgba(255,255,255,0.65)',
                 fontSize: '12px',
-                letterSpacing: '0.14em',
-                color: 'rgba(255,255,255,0.6)',
+                letterSpacing: '0.16em',
                 textTransform: 'uppercase',
                 textDecoration: 'none',
                 transition: 'color 0.25s ease',
               }}
               onMouseEnter={(e) => (e.currentTarget.style.color = '#0d9488')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.color = 'rgba(255,255,255,0.65)')
+              }
             >
               {link.label}
             </a>
