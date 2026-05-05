@@ -14,7 +14,6 @@ const socialLinks = [
 
 const expertiseTags = [
   'Machine Learning',
-  'Artificial Intelligence',
   'Embedded AI',
   'Wearable Sensing',
   'Digital Twin',
@@ -22,14 +21,33 @@ const expertiseTags = [
   'Data Analytics',
 ]
 
+const highlightCards = [
+  {
+    title: 'AI & ML Pipelines',
+    text: 'End-to-end pipeline design for time-series and computer-vision tasks, from data collection and curation to model development and deployment.',
+  },
+  {
+    title: 'Embedded Intelligence',
+    text: 'Lightweight AI for resource-constrained systems, including embedded and wearable platforms for real-world sensing applications.',
+  },
+  {
+    title: 'Wearable & Healthcare Systems',
+    text: 'Research at the intersection of wearable sensing, healthcare technologies, safety analytics, and applied machine learning.',
+  },
+  {
+    title: 'Research & Teaching',
+    text: 'Peer-reviewed research, open-source software prototypes, dataset contributions, and university-level teaching experience.',
+  },
+]
+
 const leadText =
   'PhD in Computer Science with expertise in machine learning, artificial intelligence, and deep learning for wearable sensing, embedded systems, and healthcare technologies.'
 
 const summaryText =
-  'My work focuses on designing end-to-end AI and ML pipelines for time-series and computer-vision tasks, spanning sensor data collection, synthetic data generation, feature engineering, model development, and deployment on resource-constrained platforms. I also work across IoT systems, computational biomechanics, and interdisciplinary research, with contributions including peer-reviewed publications, open research datasets, software prototypes, and university-level teaching.'
+  'My work brings together AI, data, and engineering to design practical intelligent systems — spanning sensor data collection, synthetic data generation, feature engineering, model development, and efficient deployment on constrained devices. I also work across IoT systems, computational biomechanics, and interdisciplinary research collaborations.'
 
 const ongoingText =
-  'Currently working on an ongoing physics-based digital twin project for generating realistic accelerometer and gyroscope signals from modelled human fall trajectories, supporting synthetic IMU data generation in collaboration with the University of Verona.'
+  'Current research includes an ongoing physics-based digital twin project that generates realistic accelerometer and gyroscope signals from modelled human fall trajectories for synthetic IMU data generation.'
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement | null>(null)
@@ -43,12 +61,12 @@ export default function HeroSection() {
 
     const ctx = gsap.context(() => {
       gsap.from(content.children, {
-        y: 34,
+        y: 32,
         opacity: 0,
         duration: 1,
-        stagger: 0.12,
+        stagger: 0.1,
         ease: 'power3.out',
-        delay: 0.25,
+        delay: 0.2,
       })
     }, section)
 
@@ -69,10 +87,10 @@ export default function HeroSection() {
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'hidden',
-        padding: '140px clamp(20px, 4vw, 60px) 90px',
+        padding: '150px clamp(20px, 4vw, 60px) 90px',
         background:
-          'linear-gradient(90deg, #071326 0%, #0a1f3f 48%, #071326 100%)',
-        borderBottom: '1px solid rgba(255,255,255,0.12)',
+          'linear-gradient(90deg, #071326 0%, #0a1f3f 50%, #071326 100%)',
+        borderBottom: '1px solid rgba(255,255,255,0.1)',
       }}
     >
       <div
@@ -80,7 +98,7 @@ export default function HeroSection() {
           position: 'absolute',
           inset: 0,
           background:
-            'radial-gradient(circle at center, rgba(13,148,136,0.14), transparent 52%)',
+            'radial-gradient(circle at center, rgba(13,148,136,0.16), transparent 52%)',
           pointerEvents: 'none',
         }}
       />
@@ -89,9 +107,9 @@ export default function HeroSection() {
         style={{
           position: 'absolute',
           inset: 0,
-          opacity: 0.14,
+          opacity: 0.13,
           backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)',
+            'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
           backgroundSize: '24px 24px',
           pointerEvents: 'none',
         }}
@@ -103,7 +121,7 @@ export default function HeroSection() {
           position: 'relative',
           zIndex: 1,
           width: '100%',
-          maxWidth: '900px',
+          maxWidth: '1100px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -113,7 +131,7 @@ export default function HeroSection() {
       >
         <div
           style={{
-            fontSize: '13px',
+            fontSize: '12px',
             letterSpacing: '0.22em',
             textTransform: 'uppercase',
             color: '#0d9488',
@@ -127,21 +145,23 @@ export default function HeroSection() {
           style={{
             margin: 0,
             color: '#ffffff',
-            fontSize: 'clamp(64px, 9vw, 110px)',
+            fontSize: 'clamp(62px, 9vw, 112px)',
             lineHeight: 0.95,
             fontWeight: 400,
             letterSpacing: '-0.045em',
           }}
         >
-          Dr. T. Ali
+          Dr. Muhammad
+          <br />
+          Toqeer Ali
         </h1>
 
         <p
           style={{
-            maxWidth: '780px',
+            maxWidth: '820px',
             margin: 0,
             color: '#ffffff',
-            fontSize: 'clamp(22px, 2.1vw, 30px)',
+            fontSize: 'clamp(22px, 2vw, 30px)',
             lineHeight: 1.45,
             fontWeight: 300,
           }}
@@ -151,10 +171,10 @@ export default function HeroSection() {
 
         <p
           style={{
-            maxWidth: '760px',
+            maxWidth: '860px',
             margin: 0,
             color: 'rgba(255,255,255,0.82)',
-            fontSize: 'clamp(16px, 1.25vw, 19px)',
+            fontSize: 'clamp(16px, 1.2vw, 19px)',
             lineHeight: 1.95,
           }}
         >
@@ -167,7 +187,7 @@ export default function HeroSection() {
             flexWrap: 'wrap',
             justifyContent: 'center',
             gap: '12px',
-            maxWidth: '760px',
+            maxWidth: '860px',
             marginTop: '4px',
           }}
         >
@@ -175,7 +195,7 @@ export default function HeroSection() {
             <span
               key={tag}
               style={{
-                border: '1px solid rgba(255,255,255,0.25)',
+                border: '1px solid rgba(255,255,255,0.24)',
                 color: '#ffffff',
                 padding: '11px 18px',
                 fontSize: '12px',
@@ -192,11 +212,58 @@ export default function HeroSection() {
         <div
           style={{
             width: '100%',
-            maxWidth: '760px',
+            maxWidth: '980px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '16px',
+            marginTop: '6px',
+          }}
+        >
+          {highlightCards.map((card) => (
+            <div
+              key={card.title}
+              style={{
+                padding: '22px 20px',
+                textAlign: 'left',
+                border: '1px solid rgba(255,255,255,0.12)',
+                backgroundColor: 'rgba(255,255,255,0.045)',
+                backdropFilter: 'blur(4px)',
+              }}
+            >
+              <div
+                style={{
+                  color: '#ffffff',
+                  fontSize: '15px',
+                  fontWeight: 500,
+                  marginBottom: '10px',
+                  letterSpacing: '0.02em',
+                }}
+              >
+                {card.title}
+              </div>
+              <p
+                style={{
+                  margin: 0,
+                  color: 'rgba(255,255,255,0.74)',
+                  fontSize: '14px',
+                  lineHeight: 1.75,
+                }}
+              >
+                {card.text}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div
+          style={{
+            width: '100%',
+            maxWidth: '980px',
             border: '1px solid rgba(13,148,136,0.45)',
             backgroundColor: 'rgba(255,255,255,0.04)',
             padding: '22px 24px',
-            marginTop: '6px',
+            marginTop: '2px',
+            textAlign: 'left',
           }}
         >
           <div
@@ -214,7 +281,7 @@ export default function HeroSection() {
           <p
             style={{
               margin: 0,
-              color: 'rgba(255,255,255,0.82)',
+              color: 'rgba(255,255,255,0.84)',
               fontSize: '16px',
               lineHeight: 1.8,
             }}
@@ -283,7 +350,7 @@ export default function HeroSection() {
             flexWrap: 'wrap',
             justifyContent: 'center',
             gap: '18px',
-            marginTop: '6px',
+            marginTop: '4px',
           }}
         >
           {socialLinks.map((link) => (
