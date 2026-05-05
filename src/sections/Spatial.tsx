@@ -28,6 +28,30 @@ const profilePoints = [
   'Efficient deployment on embedded and resource-constrained platforms.',
 ]
 
+const collaborators = [
+  {
+    name: 'Prof. Graziano Pravadelli',
+    role: 'PhD Supervisor · University of Verona',
+  },
+  {
+    name: 'Prof. Florenc Demrozi',
+    role: 'PhD Co-supervisor · University of Stavanger',
+  },
+  {
+    name: 'Dr. Fadi Al Machot',
+    role: 'International Collaborator · NMBU, Norway',
+  },
+  {
+    name: 'Prof. Iacopo Tamellin',
+    role: 'Digital Twin Collaborator · DIMI, University of Verona',
+  },
+]
+
+const researchPartners = [
+  'ICE Lab Verona',
+  'Protechto s.r.l.',
+]
+
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement | null>(null)
   const contentRef = useRef<HTMLDivElement | null>(null)
@@ -137,6 +161,30 @@ export default function HeroSection() {
               realistic accelerometer and gyroscope signals from modelled human
               fall trajectories.
             </p>
+          </div>
+
+          <div className="profile-hero__collaborations">
+            <div className="profile-hero__collab-label">
+              Current collaborators
+            </div>
+
+            <div className="profile-hero__collab-list">
+              {collaborators.map((person) => (
+                <div key={person.name} className="profile-hero__collab-item">
+                  <strong>{person.name}</strong>
+                  <span>{person.role}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="profile-hero__partners">
+              <span>Research partners</span>
+              <div>
+                {researchPartners.map((partner) => (
+                  <em key={partner}>{partner}</em>
+                ))}
+              </div>
+            </div>
           </div>
         </aside>
 
